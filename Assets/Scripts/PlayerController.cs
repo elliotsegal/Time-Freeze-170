@@ -1,23 +1,25 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
     public float runSpeed;
     public float jumpSpeed;
 
+    [NonSerialized] public Color color;
+
     private Rigidbody2D body;
+    private PlayerOnGroundCheck groundCheck;
+
     private Vector2 input;
     private bool jump;
 
     private void Start()
     {
         body = GetComponent<Rigidbody2D>();
-    }
-
-    private void Update()
-    {
-        input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        jump |= Input.GetButtonDown("Jump");
+        groundCheck = GetComponent<PlayerOnGroundCheck>();
+        GetComponent<Renderer>().material.color = color;
     }
 
     private void FixedUpdate()
@@ -34,9 +36,24 @@ public class PlayerController : MonoBehaviour
         }
         if (jump)
         {
-            velocity.y = jumpSpeed;
+            if (groundCheck.onGround)
+            {
+                velocity.y = jumpSpeed;
+                groundCheck.Cooldown();
+            }
             jump = false;
         }
         body.velocity = velocity;
+    }
+
+    public void OnMove(InputAction.CallbackContext context)
+    {
+        input = context.ReadValue<Vector2>();
+    }
+
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+            jump = true;
     }
 }
