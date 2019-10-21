@@ -1,20 +1,20 @@
 ﻿using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class PlayerListDisplay : MonoBehaviour
+public class PlayerListDisplay : MonoBehaviour, IPlayerList
 {
-    public static PlayerListDisplay singleton { get; private set; }
-
     public PlayerDisplay itemPrefab;
 
-    private void Awake()
-    {
-        singleton = this;
-    }
-
-    public void AddPlayer(PlayerController player)
+    public void AddPlayer(PlayerInput player)
     {
         PlayerDisplay display = Instantiate(itemPrefab);
         display.player = player;
         display.transform.SetParent(transform, false);
+    }
+
+    public void RemovePlayer(PlayerInput player)
+    {
+        // Don't need to do anything here, individual PlayerDisplays
+        // will destroy themselves when their player disappears.
     }
 }
