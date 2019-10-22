@@ -8,16 +8,19 @@ public class PlayerController : MonoBehaviour
 
     public float runSpeed;
     public float jumpSpeed;
+    public float timeMultiplier;
     [Space]
     public ParticleSystem timeStopFX;
 
     [NonSerialized] public Color color;
 
     private Rigidbody2D body;
+    private Animator animator;
     private PlayerOnGroundCheck groundCheck;
     private PlayerTimer timer;
     private bool frozen;
     private Vector2 savedVelocity;
+    private bool hazardCollision;
 
     private Vector2 input;
     private bool jump;
@@ -25,23 +28,46 @@ public class PlayerController : MonoBehaviour
     public void Init()
     {
         body = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         groundCheck = GetComponent<PlayerOnGroundCheck>();
         timer = GetComponentInChildren<PlayerTimer>();
+        hazardCollision = false;
     }
 
     private void Start()
     {
-        GetComponent<Renderer>().material.color = color;
+        GetComponentInChildren<Renderer>().material.color = color;
+        UpdateFacing(false);
+    }
+
+    private void UpdateFacing(bool left)
+    {
+        transform.GetChild(0).localEulerAngles = new Vector3(0, left ? -90 : 90, 0);
+    }
+
+    private void Update()
+    {
+        bool running = Mathf.Abs(input.x) > 0.5f;
+        animator.SetBool("On Ground", groundCheck.onGround);
+        animator.SetBool("Walk", running);
+        animator.speed = frozen ? 0 : 1;
     }
 
     private void FixedUpdate()
     {
-        if (frozen) return;
+        if (frozen)
+        {
+            timeMultiplier = 0;
+            return;
+        }
+
+        timeMultiplier = 1;
         Vector2 velocity = body.velocity;
         bool running = Mathf.Abs(input.x) > 0.5f;
         if (running)
         {
             velocity.x = Mathf.Sign(input.x) * runSpeed;
+            UpdateFacing(input.x < 0);
         }
         else
         {
@@ -58,6 +84,7 @@ public class PlayerController : MonoBehaviour
         }
         body.velocity = velocity;
     }
+
 
     public void SetFrozen(bool frozen, PlayerController source)
     {
@@ -85,7 +112,11 @@ public class PlayerController : MonoBehaviour
 
     public void OnPickUp(Powerup powerup)
     {
-        timer.AddTime(5);
+        timer.AddTime(10);
+    }
+    public void OnHurt()
+    {
+        timer.AddTime(-5);
     }
 
     public void OnMove(InputAction.CallbackContext context)

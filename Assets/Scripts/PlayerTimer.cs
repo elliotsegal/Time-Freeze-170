@@ -12,27 +12,22 @@ public class PlayerTimer : MonoBehaviour
     public float startTime;
     public TimerState state;
 
+    private PlayerController player;
     private float timer;
     private TextMesh textMesh;
 
     private void Start()
     {
         timer = startTime;
+        player = GetComponentInParent<PlayerController>();
         textMesh = GetComponent<TextMesh>();
-        textMesh.color = GetComponentInParent<PlayerController>().color;
+        textMesh.color = player.color;
     }
 
     private void Update()
     {
-        if (state == TimerState.Normal)
-        {
-            timer -= Time.deltaTime;
-        }
-        else if (state == TimerState.Accelerated)
-        {
-            timer -= Time.deltaTime * 2;
-        }
-
+        timer -= Time.deltaTime * player.timeMultiplier;
+      
         if (timer < 0)
         {
             textMesh.text = "=(";
