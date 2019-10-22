@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    public const int Layer = 8;
+
     public float runSpeed;
     public float jumpSpeed;
     [Space]
@@ -79,6 +81,11 @@ public class PlayerController : MonoBehaviour
             this.frozen = false;
             body.velocity = savedVelocity;
         }
+    }
+
+    public void OnPickUp(Powerup powerup)
+    {
+        timer.AddTime(5);
     }
 
     public void OnMove(InputAction.CallbackContext context)

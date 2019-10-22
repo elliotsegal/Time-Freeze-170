@@ -44,4 +44,9 @@ public class PlayerTimer : MonoBehaviour
             textMesh.fontStyle = state == TimerState.Accelerated ? FontStyle.Bold : FontStyle.Normal;
         }
     }
+
+    public void AddTime(float time)
+    {
+        timer += time;
+    }
 }
