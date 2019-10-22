@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 2d837cde1b330fe4caa68c99242ef28e
+guid: db15a3182b420c547ada93755ad3666e
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
-    second: Jump
+    second: Dead
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -35,7 +35,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Jump
+      name: Dead
       takeName: Take 001
       internalID: 0
       firstFrame: 1
@@ -113,7 +113,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 50
+    globalScale: 0.5
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

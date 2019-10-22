@@ -71,6 +71,7 @@ public class PlayerManager : MonoBehaviour
         foreach (PlayerController player in players)
         {
             player.SetFrozen(false, null);
+            player.StartGame();
         }
     }
 
