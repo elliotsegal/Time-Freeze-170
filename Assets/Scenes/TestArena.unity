@@ -241,6 +241,8 @@ GameObject:
   - component: {fileID: 93222675}
   - component: {fileID: 93222678}
   - component: {fileID: 93222677}
+  - component: {fileID: 93222679}
+  - component: {fileID: 93222676}
   m_Layer: 0
   m_Name: Spike1-1
   m_TagString: Untagged
@@ -262,6 +264,18 @@ Transform:
   m_Father: {fileID: 1322658888}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &93222676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 93222674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1f99b88887ca584b808ca9a8dbb199c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &93222677
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -308,6 +322,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 93222674}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!58 &93222679
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 93222674}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.3
 --- !u!1 &150938398
 GameObject:
   m_ObjectHideFlags: 0
@@ -831,6 +861,8 @@ GameObject:
   - component: {fileID: 354237850}
   - component: {fileID: 354237853}
   - component: {fileID: 354237852}
+  - component: {fileID: 354237854}
+  - component: {fileID: 354237851}
   m_Layer: 0
   m_Name: SpikeG-5
   m_TagString: Untagged
@@ -852,6 +884,18 @@ Transform:
   m_Father: {fileID: 11016797}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &354237851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 354237849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1f99b88887ca584b808ca9a8dbb199c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &354237852
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -898,6 +942,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 354237849}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!58 &354237854
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 354237849}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.3
 --- !u!1 &356902089
 GameObject:
   m_ObjectHideFlags: 0
@@ -994,6 +1054,8 @@ GameObject:
   - component: {fileID: 428520976}
   - component: {fileID: 428520979}
   - component: {fileID: 428520978}
+  - component: {fileID: 428520980}
+  - component: {fileID: 428520977}
   m_Layer: 0
   m_Name: Spike2-3
   m_TagString: Untagged
@@ -1015,6 +1077,18 @@ Transform:
   m_Father: {fileID: 1955826499}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &428520977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 428520975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1f99b88887ca584b808ca9a8dbb199c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &428520978
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1061,6 +1135,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 428520975}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!58 &428520980
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 428520975}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.3
 --- !u!1 &465770732
 GameObject:
   m_ObjectHideFlags: 0
@@ -1312,6 +1402,8 @@ GameObject:
   - component: {fileID: 537053969}
   - component: {fileID: 537053972}
   - component: {fileID: 537053971}
+  - component: {fileID: 537053973}
+  - component: {fileID: 537053970}
   m_Layer: 0
   m_Name: Spike2-1
   m_TagString: Untagged
@@ -1333,6 +1425,18 @@ Transform:
   m_Father: {fileID: 1955826499}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &537053970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537053968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1f99b88887ca584b808ca9a8dbb199c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &537053971
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1379,6 +1483,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 537053968}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!58 &537053973
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537053968}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.3
 --- !u!1 &667381766
 GameObject:
   m_ObjectHideFlags: 0
@@ -1747,6 +1867,8 @@ GameObject:
   - component: {fileID: 834075609}
   - component: {fileID: 834075612}
   - component: {fileID: 834075611}
+  - component: {fileID: 834075613}
+  - component: {fileID: 834075610}
   m_Layer: 0
   m_Name: SpikeG-3
   m_TagString: Untagged
@@ -1768,6 +1890,18 @@ Transform:
   m_Father: {fileID: 11016797}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &834075610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 834075608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1f99b88887ca584b808ca9a8dbb199c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &834075611
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1814,6 +1948,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 834075608}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!58 &834075613
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 834075608}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.3
 --- !u!1 &902973269
 GameObject:
   m_ObjectHideFlags: 0
@@ -1825,6 +1975,8 @@ GameObject:
   - component: {fileID: 902973270}
   - component: {fileID: 902973273}
   - component: {fileID: 902973272}
+  - component: {fileID: 902973274}
+  - component: {fileID: 902973271}
   m_Layer: 0
   m_Name: Spike1-4
   m_TagString: Untagged
@@ -1846,6 +1998,18 @@ Transform:
   m_Father: {fileID: 1322658888}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &902973271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 902973269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1f99b88887ca584b808ca9a8dbb199c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &902973272
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1892,6 +2056,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 902973269}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!58 &902973274
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 902973269}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.3
 --- !u!1 &974417351
 GameObject:
   m_ObjectHideFlags: 0
@@ -1970,6 +2150,8 @@ GameObject:
   - component: {fileID: 1178205771}
   - component: {fileID: 1178205774}
   - component: {fileID: 1178205773}
+  - component: {fileID: 1178205775}
+  - component: {fileID: 1178205772}
   m_Layer: 0
   m_Name: SpikeG-4
   m_TagString: Untagged
@@ -1991,6 +2173,18 @@ Transform:
   m_Father: {fileID: 11016797}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1178205772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178205770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1f99b88887ca584b808ca9a8dbb199c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &1178205773
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2037,6 +2231,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1178205770}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!58 &1178205775
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178205770}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.3
 --- !u!1 &1224120621
 GameObject:
   m_ObjectHideFlags: 0
@@ -2252,6 +2462,8 @@ GameObject:
   - component: {fileID: 1318413119}
   - component: {fileID: 1318413122}
   - component: {fileID: 1318413121}
+  - component: {fileID: 1318413123}
+  - component: {fileID: 1318413120}
   m_Layer: 0
   m_Name: Spike1-3
   m_TagString: Untagged
@@ -2273,6 +2485,18 @@ Transform:
   m_Father: {fileID: 1322658888}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1318413120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318413118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1f99b88887ca584b808ca9a8dbb199c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &1318413121
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2319,6 +2543,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1318413118}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!58 &1318413123
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318413118}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.3
 --- !u!1 &1322658887
 GameObject:
   m_ObjectHideFlags: 0
@@ -2481,6 +2721,8 @@ GameObject:
   - component: {fileID: 1405501709}
   - component: {fileID: 1405501712}
   - component: {fileID: 1405501711}
+  - component: {fileID: 1405501713}
+  - component: {fileID: 1405501710}
   m_Layer: 0
   m_Name: Spike1-2
   m_TagString: Untagged
@@ -2502,6 +2744,18 @@ Transform:
   m_Father: {fileID: 1322658888}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1405501710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405501708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1f99b88887ca584b808ca9a8dbb199c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &1405501711
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2548,6 +2802,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1405501708}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!58 &1405501713
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405501708}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.3
 --- !u!1 &1556070647
 GameObject:
   m_ObjectHideFlags: 0
@@ -2664,6 +2934,8 @@ GameObject:
   - component: {fileID: 1560945281}
   - component: {fileID: 1560945284}
   - component: {fileID: 1560945283}
+  - component: {fileID: 1560945285}
+  - component: {fileID: 1560945282}
   m_Layer: 0
   m_Name: Spike2-2
   m_TagString: Untagged
@@ -2685,6 +2957,18 @@ Transform:
   m_Father: {fileID: 1955826499}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1560945282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560945280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1f99b88887ca584b808ca9a8dbb199c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &1560945283
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2731,6 +3015,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1560945280}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!58 &1560945285
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560945280}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.3
 --- !u!1 &1632153816
 GameObject:
   m_ObjectHideFlags: 0
@@ -2765,10 +3065,10 @@ RectTransform:
   m_Father: {fileID: 209965637}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 320, y: 480}
+  m_SizeDelta: {x: 320, y: -128}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1632153818
 MonoBehaviour:
@@ -2929,6 +3229,8 @@ GameObject:
   - component: {fileID: 1835631109}
   - component: {fileID: 1835631112}
   - component: {fileID: 1835631111}
+  - component: {fileID: 1835631113}
+  - component: {fileID: 1835631110}
   m_Layer: 0
   m_Name: SpikeG-2
   m_TagString: Untagged
@@ -2950,6 +3252,18 @@ Transform:
   m_Father: {fileID: 11016797}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1835631110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1835631108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1f99b88887ca584b808ca9a8dbb199c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &1835631111
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2996,6 +3310,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1835631108}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!58 &1835631113
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1835631108}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.3
 --- !u!1 &1900826461
 GameObject:
   m_ObjectHideFlags: 0
@@ -3294,6 +3624,8 @@ GameObject:
   - component: {fileID: 2011734486}
   - component: {fileID: 2011734489}
   - component: {fileID: 2011734488}
+  - component: {fileID: 2011734490}
+  - component: {fileID: 2011734487}
   m_Layer: 0
   m_Name: Spike2-4
   m_TagString: Untagged
@@ -3315,6 +3647,18 @@ Transform:
   m_Father: {fileID: 1955826499}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2011734487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2011734485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1f99b88887ca584b808ca9a8dbb199c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &2011734488
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3361,6 +3705,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2011734485}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!58 &2011734490
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2011734485}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.3
 --- !u!1 &2032051913
 GameObject:
   m_ObjectHideFlags: 0
@@ -3372,6 +3732,8 @@ GameObject:
   - component: {fileID: 2032051914}
   - component: {fileID: 2032051917}
   - component: {fileID: 2032051916}
+  - component: {fileID: 2032051918}
+  - component: {fileID: 2032051915}
   m_Layer: 0
   m_Name: SpikeG-1
   m_TagString: Untagged
@@ -3393,6 +3755,18 @@ Transform:
   m_Father: {fileID: 11016797}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2032051915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032051913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1f99b88887ca584b808ca9a8dbb199c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &2032051916
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3439,6 +3813,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2032051913}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!58 &2032051918
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032051913}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.3
 --- !u!1 &2063514399
 GameObject:
   m_ObjectHideFlags: 0

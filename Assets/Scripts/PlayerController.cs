@@ -20,7 +20,9 @@ public class PlayerController : MonoBehaviour
     private PlayerTimer timer;
     private bool frozen;
     private Vector2 savedVelocity;
-    private bool hazardCollision;
+
+    private bool freezingOtherPlayers;
+    [NonSerialized] public int hazardsOverlapping;
 
     private Vector2 input;
     private bool jump;
@@ -31,7 +33,6 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         groundCheck = GetComponent<PlayerOnGroundCheck>();
         timer = GetComponentInChildren<PlayerTimer>();
-        hazardCollision = false;
     }
 
     private void Start()
@@ -51,17 +52,22 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("On Ground", groundCheck.onGround);
         animator.SetBool("Walk", running);
         animator.speed = frozen ? 0 : 1;
+
+        if (frozen)
+            timeMultiplier = 0;
+        else
+        {
+            timeMultiplier = 1;
+            if (hazardsOverlapping > 0)
+                timeMultiplier *= 1.5f;
+            if (freezingOtherPlayers)
+                timeMultiplier *= 2;
+        }
     }
 
     private void FixedUpdate()
     {
-        if (frozen)
-        {
-            timeMultiplier = 0;
-            return;
-        }
-
-        timeMultiplier = 1;
+        if (frozen) return;
         Vector2 velocity = body.velocity;
         bool running = Mathf.Abs(input.x) > 0.5f;
         if (running)
@@ -88,7 +94,6 @@ public class PlayerController : MonoBehaviour
 
     public void SetFrozen(bool frozen, PlayerController source)
     {
-        timer.state = frozen ? TimerState.Frozen : TimerState.Normal;
         body.isKinematic = frozen;
         timeStopFX.gameObject.SetActive(frozen);
         if (frozen)
@@ -114,10 +119,6 @@ public class PlayerController : MonoBehaviour
     {
         timer.AddTime(10);
     }
-    public void OnHurt()
-    {
-        timer.AddTime(-5);
-    }
 
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -139,7 +140,7 @@ public class PlayerController : MonoBehaviour
             {
                 player.SetFrozen(true, this);
             }
-            timer.state = TimerState.Accelerated;
+            freezingOtherPlayers = true;
         }
         else
         {
@@ -147,7 +148,7 @@ public class PlayerController : MonoBehaviour
             {
                 player.SetFrozen(false, this);
             }
-            timer.state = TimerState.Normal;
+            freezingOtherPlayers = false;
         }
     }
 }

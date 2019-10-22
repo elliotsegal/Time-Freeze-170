@@ -1,16 +1,8 @@
 ﻿using UnityEngine;
 
-public enum TimerState
-{
-    Frozen,
-    Normal,
-    Accelerated
-}
-
 public class PlayerTimer : MonoBehaviour
 {
     public float startTime;
-    public TimerState state;
 
     private PlayerController player;
     private float timer;
@@ -36,7 +28,7 @@ public class PlayerTimer : MonoBehaviour
         else
         {
             textMesh.text = timer.ToString("N2");
-            textMesh.fontStyle = state == TimerState.Accelerated ? FontStyle.Bold : FontStyle.Normal;
+            textMesh.fontStyle = player.timeMultiplier > 1 ? FontStyle.Bold : FontStyle.Normal;
         }
     }
 
