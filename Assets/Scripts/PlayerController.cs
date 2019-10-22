@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 
     public float runSpeed;
     public float jumpSpeed;
+    public float timeMultiplier;
     [Space]
     public ParticleSystem timeStopFX;
 
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour
     private PlayerTimer timer;
     private bool frozen;
     private Vector2 savedVelocity;
+    private bool hazardCollision;
 
     private Vector2 input;
     private bool jump;
@@ -27,6 +29,7 @@ public class PlayerController : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         groundCheck = GetComponent<PlayerOnGroundCheck>();
         timer = GetComponentInChildren<PlayerTimer>();
+        hazardCollision = false;
     }
 
     private void Start()
@@ -36,7 +39,13 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (frozen) return;
+        if (frozen)
+        {
+            timeMultiplier = 0;
+            return;
+        }
+
+        timeMultiplier = 1;
         Vector2 velocity = body.velocity;
         bool running = Mathf.Abs(input.x) > 0.5f;
         if (running)
@@ -57,7 +66,13 @@ public class PlayerController : MonoBehaviour
             jump = false;
         }
         body.velocity = velocity;
+
+     
+
+        
+
     }
+
 
     public void SetFrozen(bool frozen, PlayerController source)
     {

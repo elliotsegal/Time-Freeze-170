@@ -24,15 +24,9 @@ public class PlayerTimer : MonoBehaviour
 
     private void Update()
     {
-        if (state == TimerState.Normal)
-        {
-            timer -= Time.deltaTime;
-        }
-        else if (state == TimerState.Accelerated)
-        {
-            timer -= Time.deltaTime * 2;
-        }
 
+        timer -= Time.deltaTime * GetComponent<PlayerController>().timeMultiplier;
+      
         if (timer < 0)
         {
             textMesh.text = "=(";
