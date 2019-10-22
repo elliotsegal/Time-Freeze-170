@@ -5138,7 +5138,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2f945cfe6aa844a4c821049002656361, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -5184,7 +5184,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 1
-  playerHeight: 1.5
+  playerSize: {x: 1, y: 1.5}
   checkDistance: 0.05
 --- !u!114 &8638137507882693859
 MonoBehaviour:
@@ -5200,6 +5200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   runSpeed: 4
   jumpSpeed: 9
+  timeMultiplier: 0
   timeStopFX: {fileID: 3686444298694495286}
 --- !u!1 &4011418366684060457
 GameObject:
@@ -5463,7 +5464,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startTime: 30
-  state: 0
 --- !u!1 &6087139833286782547
 GameObject:
   m_ObjectHideFlags: 0

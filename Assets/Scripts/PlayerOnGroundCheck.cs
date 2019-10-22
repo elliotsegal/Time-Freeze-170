@@ -3,7 +3,7 @@
 public class PlayerOnGroundCheck : MonoBehaviour
 {
     public LayerMask groundLayer;
-    public float playerHeight;
+    public Vector2 playerSize;
     public float checkDistance;
 
     public bool onGround { get; private set; }
@@ -19,8 +19,8 @@ public class PlayerOnGroundCheck : MonoBehaviour
             return;
         }
 
-        float distance = (playerHeight / 2) + checkDistance;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, distance, groundLayer);
+        float distance = (playerSize.y / 2) + checkDistance;
+        RaycastHit2D hit = Physics2D.BoxCast(transform.position, new Vector2(playerSize.x, 0.01f), 0, Vector2.down, distance - 0.005f, groundLayer);
         onGround = hit.collider != null;
     }
 

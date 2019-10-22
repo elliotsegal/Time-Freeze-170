@@ -8,7 +8,9 @@ public class SpikeTrigger : MonoBehaviour
     {
         if (collider.gameObject.layer == PlayerController.Layer)
         {
-            ++collider.GetComponent<PlayerController>().hazardsOverlapping;
+            PlayerController player = collider.GetComponent<PlayerController>();
+            if (player.hazardsOverlapping == 0) player.OnHurt();
+            ++player.hazardsOverlapping;
         }
     }
     private void OnTriggerExit2D(Collider2D collider)

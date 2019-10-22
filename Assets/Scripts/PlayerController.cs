@@ -58,10 +58,8 @@ public class PlayerController : MonoBehaviour
         else
         {
             timeMultiplier = 1;
-            if (hazardsOverlapping > 0)
-                timeMultiplier *= 1.5f;
             if (freezingOtherPlayers)
-                timeMultiplier *= 2;
+                timeMultiplier += 1;
         }
     }
 
@@ -118,6 +116,10 @@ public class PlayerController : MonoBehaviour
     public void OnPickUp(Powerup powerup)
     {
         timer.AddTime(10);
+    }
+    public void OnHurt()
+    {
+        timer.AddTime(-5);
     }
 
     public void OnMove(InputAction.CallbackContext context)
