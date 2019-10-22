@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     [NonSerialized] public Color color;
 
     private Rigidbody2D body;
+    private Animator animator;
     private PlayerOnGroundCheck groundCheck;
     private PlayerTimer timer;
     private bool frozen;
@@ -27,6 +28,7 @@ public class PlayerController : MonoBehaviour
     public void Init()
     {
         body = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         groundCheck = GetComponent<PlayerOnGroundCheck>();
         timer = GetComponentInChildren<PlayerTimer>();
         hazardCollision = false;
@@ -34,7 +36,21 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        GetComponent<Renderer>().material.color = color;
+        GetComponentInChildren<Renderer>().material.color = color;
+        UpdateFacing(false);
+    }
+
+    private void UpdateFacing(bool left)
+    {
+        transform.GetChild(0).localEulerAngles = new Vector3(0, left ? -90 : 90, 0);
+    }
+
+    private void Update()
+    {
+        bool running = Mathf.Abs(input.x) > 0.5f;
+        animator.SetBool("On Ground", groundCheck.onGround);
+        animator.SetBool("Walk", running);
+        animator.speed = frozen ? 0 : 1;
     }
 
     private void FixedUpdate()
@@ -51,6 +67,7 @@ public class PlayerController : MonoBehaviour
         if (running)
         {
             velocity.x = Mathf.Sign(input.x) * runSpeed;
+            UpdateFacing(input.x < 0);
         }
         else
         {
@@ -66,11 +83,6 @@ public class PlayerController : MonoBehaviour
             jump = false;
         }
         body.velocity = velocity;
-
-     
-
-        
-
     }
 
 
@@ -100,7 +112,11 @@ public class PlayerController : MonoBehaviour
 
     public void OnPickUp(Powerup powerup)
     {
-        timer.AddTime(5);
+        timer.AddTime(10);
+    }
+    public void OnHurt()
+    {
+        timer.AddTime(-5);
     }
 
     public void OnMove(InputAction.CallbackContext context)
