@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     private PlayerTimer timer;
     private bool frozen;
     private Vector2 savedVelocity;
+    private int id = -1;
 
     private bool freezingOtherPlayers;
     [NonSerialized] public int hazardsOverlapping;
@@ -62,7 +63,18 @@ public class PlayerController : MonoBehaviour
                 timeMultiplier += 1;
         }
     }
-
+    public void setID(int newID)
+    {
+        id = newID;
+    }
+    public int getID()
+    {
+        return id;
+    }
+    public float getTime()
+    {
+        return timer.getTime();
+    }
     private void FixedUpdate()
     {
         if (frozen) return;

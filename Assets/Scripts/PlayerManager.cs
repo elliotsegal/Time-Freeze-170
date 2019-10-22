@@ -13,12 +13,15 @@ public class PlayerManager : MonoBehaviour
 {
     private static int playerID = 0;
     public static PlayerManager singleton { get; private set; }
+    private bool gameStarted = false;
+    private bool gameEnded = false;
 
     public GameObject[] playerListObjects;
     public GameObject[] spawnPoints;
     [Space]
     public UnityEvent onGameStarted = new UnityEvent();
     public UnityEvent onGameStopped = new UnityEvent();
+
 
     private IPlayerList[] playerLists;
 
@@ -68,10 +71,15 @@ public class PlayerManager : MonoBehaviour
     {
         playing = true;
         onGameStarted.Invoke();
+        int id = 0;
         foreach (PlayerController player in players)
         {
             player.SetFrozen(false, null);
+            player.setID(id);
+            id++;
         }
+        gameStarted = true;
+
     }
 
     private static Color GetColorForIndex(int index)
@@ -107,6 +115,45 @@ public class PlayerManager : MonoBehaviour
         {
             if (p == player) continue;
             yield return p;
+        }
+    }
+    private void FixedUpdate()
+    {
+        if (gameStarted && !gameEnded)
+        { 
+            int playersLeft = 0;
+            int lastPlayer = -1;
+            foreach (PlayerController player in players)
+            {
+                if (player.getTime() > 0)
+                {
+                    lastPlayer = player.getID();
+                    playersLeft++;
+                }
+            }
+            if (playersLeft == 1)
+            {
+                gameEnded = true;
+                endRound(lastPlayer);
+            }
+            else if (playersLeft == 0)
+            {
+                gameEnded = true;
+                endRound(-1);
+            }
+        }
+    }
+    private void endRound(int playerID)
+    {
+        GameObject roundEndTextObject = GameObject.Find("RoundEndText");
+        UnityEngine.UI.Text roundEndText = roundEndTextObject.GetComponent<UnityEngine.UI.Text>();
+        if (playerID == -1)
+        {
+            roundEndText.text = "No Winner";
+        }
+        else
+        {
+            roundEndText.text = "Player " + (1 + playerID).ToString() + " Wins";
         }
     }
 }
