@@ -77,6 +77,8 @@ public class PlayerManager : MonoBehaviour
             player.SetFrozen(false, null);
             player.setID(id);
             id++;
+            player.StartGame();
+
         }
         gameStarted = true;
 

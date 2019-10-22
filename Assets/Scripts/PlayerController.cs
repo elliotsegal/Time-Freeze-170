@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
     private PlayerOnGroundCheck groundCheck;
     private PlayerTimer timer;
+    private PlayerSound sound;
     private bool frozen;
     private Vector2 savedVelocity;
     private int id = -1;
@@ -28,12 +29,20 @@ public class PlayerController : MonoBehaviour
     private Vector2 input;
     private bool jump;
 
+    private bool dead => !timer.hasTime;
+
     public void Init()
     {
         body = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         groundCheck = GetComponent<PlayerOnGroundCheck>();
         timer = GetComponentInChildren<PlayerTimer>();
+        sound = GetComponentInChildren<PlayerSound>();
+        SetCollisionEnabled(false);
+    }
+    public void StartGame()
+    {
+        SetCollisionEnabled(true);
     }
 
     private void Start()
@@ -46,12 +55,31 @@ public class PlayerController : MonoBehaviour
     {
         transform.GetChild(0).localEulerAngles = new Vector3(0, left ? -90 : 90, 0);
     }
+    private void SetCollisionEnabled(bool collide)
+    {
+        GetComponent<Collider2D>().enabled = collide;
+    }
 
     private void Update()
     {
+        if (dead && groundCheck.onGround)
+        {
+            animator.SetBool("On Ground", true);
+            animator.SetBool("Walk", false);
+            animator.SetBool("Dead", true);
+            if (body != null)
+            {
+                body.isKinematic = true;
+                body.velocity = Vector2.zero;
+                SetCollisionEnabled(false);
+            }
+            return;
+        }
+
         bool running = Mathf.Abs(input.x) > 0.5f;
         animator.SetBool("On Ground", groundCheck.onGround);
         animator.SetBool("Walk", running);
+        animator.SetBool("Dead", false);
         animator.speed = frozen ? 0 : 1;
 
         if (frozen)
@@ -77,7 +105,7 @@ public class PlayerController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (frozen) return;
+        if (frozen || dead) return;
         Vector2 velocity = body.velocity;
         bool running = Mathf.Abs(input.x) > 0.5f;
         if (running)
@@ -95,6 +123,7 @@ public class PlayerController : MonoBehaviour
             {
                 velocity.y = jumpSpeed;
                 groundCheck.Cooldown();
+                sound.PlayJump();
             }
             jump = false;
         }
@@ -147,7 +176,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnFreeze(InputAction.CallbackContext context)
     {
-        if (frozen || context.started) return;
+        if (frozen || dead || context.started) return;
         if (context.performed)
         {
             foreach (PlayerController player in PlayerManager.singleton.GetOtherPlayers(this))
@@ -155,6 +184,7 @@ public class PlayerController : MonoBehaviour
                 player.SetFrozen(true, this);
             }
             freezingOtherPlayers = true;
+            sound.StartTimeFreeze();
         }
         else
         {
@@ -163,6 +193,7 @@ public class PlayerController : MonoBehaviour
                 player.SetFrozen(false, this);
             }
             freezingOtherPlayers = false;
+            sound.StopTimeFreeze();
         }
     }
 }

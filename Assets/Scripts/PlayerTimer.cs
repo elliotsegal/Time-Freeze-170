@@ -4,6 +4,8 @@ public class PlayerTimer : MonoBehaviour
 {
     public float startTime;
 
+    public bool hasTime => timer > 0;
+
     private PlayerController player;
     private float timer;
     private TextMesh textMesh;
@@ -22,8 +24,7 @@ public class PlayerTimer : MonoBehaviour
       
         if (timer < 0)
         {
-            textMesh.text = "=(";
-            textMesh.fontStyle = FontStyle.Normal;
+            textMesh.text = "";
         }
         else
         {
