@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public interface IPlayerList
 {
@@ -18,6 +19,7 @@ public class PlayerManager : MonoBehaviour
 
     public GameObject[] playerListObjects;
     public GameObject[] spawnPoints;
+    public Text roundEndText;
     [Space]
     public UnityEvent onGameStarted = new UnityEvent();
     public UnityEvent onGameStopped = new UnityEvent();
@@ -27,7 +29,6 @@ public class PlayerManager : MonoBehaviour
 
     private List<PlayerController> players;
     private List<GameObject> unusedSpawnPoints;
-    private bool playing;
 
     private void Start()
     {
@@ -40,7 +41,8 @@ public class PlayerManager : MonoBehaviour
 
         players = new List<PlayerController>();
         unusedSpawnPoints = new List<GameObject>(spawnPoints);
-        playing = false;
+
+        roundEndText.text = "";
     }
 
     public void OnPlayerJoined(PlayerInput playerInput)
@@ -69,19 +71,14 @@ public class PlayerManager : MonoBehaviour
 
     public void StartGame()
     {
-        playing = true;
+        gameStarted = true;
         onGameStarted.Invoke();
-        int id = 0;
         foreach (PlayerController player in players)
         {
             player.SetFrozen(false, null);
-            player.setID(id);
-            id++;
             player.StartGame();
 
         }
-        gameStarted = true;
-
     }
 
     private static Color GetColorForIndex(int index)
@@ -119,43 +116,38 @@ public class PlayerManager : MonoBehaviour
             yield return p;
         }
     }
-    private void FixedUpdate()
+
+    private void Update()
     {
         if (gameStarted && !gameEnded)
         { 
             int playersLeft = 0;
-            int lastPlayer = -1;
+            PlayerController lastPlayer = null;
             foreach (PlayerController player in players)
             {
-                if (player.getTime() > 0)
+                if (!player.dead)
                 {
-                    lastPlayer = player.getID();
+                    lastPlayer = player;
                     playersLeft++;
                 }
             }
-            if (playersLeft == 1)
+            if (playersLeft <= 1 && playersLeft < players.Count)
             {
                 gameEnded = true;
-                endRound(lastPlayer);
-            }
-            else if (playersLeft == 0)
-            {
-                gameEnded = true;
-                endRound(-1);
+                EndRound(lastPlayer);
             }
         }
     }
-    private void endRound(int playerID)
+    private void EndRound(PlayerController player)
     {
-        GameObject roundEndTextObject = GameObject.Find("RoundEndText");
-        UnityEngine.UI.Text roundEndText = roundEndTextObject.GetComponent<UnityEngine.UI.Text>();
-        if (playerID == -1)
+        if (player == null)
         {
             roundEndText.text = "No Winner";
         }
         else
         {
-            roundEndText.text = "Player " + (1 + playerID).ToString() + " Wins";
+            roundEndText.text = PlayerDisplay.GetPlayerName(player) + " Wins";
+            player.winner = true;
         }
     }
 }

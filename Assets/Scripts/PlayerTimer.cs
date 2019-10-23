@@ -32,10 +32,6 @@ public class PlayerTimer : MonoBehaviour
             textMesh.fontStyle = player.timeMultiplier > 1 ? FontStyle.Bold : FontStyle.Normal;
         }
     }
-    public float getTime()
-    {
-        return timer;
-    }
     public void AddTime(float time)
     {
         timer += time;

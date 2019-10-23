@@ -21,15 +21,15 @@ public class PlayerController : MonoBehaviour
     private PlayerSound sound;
     private bool frozen;
     private Vector2 savedVelocity;
-    private int id = -1;
 
     private bool freezingOtherPlayers;
     [NonSerialized] public int hazardsOverlapping;
+    [NonSerialized] public bool winner;
 
     private Vector2 input;
     private bool jump;
 
-    private bool dead => !timer.hasTime;
+    public bool dead => !timer.hasTime;
 
     public void Init()
     {
@@ -82,7 +82,7 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("Dead", false);
         animator.speed = frozen ? 0 : 1;
 
-        if (frozen)
+        if (frozen || winner)
             timeMultiplier = 0;
         else
         {
@@ -90,18 +90,6 @@ public class PlayerController : MonoBehaviour
             if (freezingOtherPlayers)
                 timeMultiplier += 1;
         }
-    }
-    public void setID(int newID)
-    {
-        id = newID;
-    }
-    public int getID()
-    {
-        return id;
-    }
-    public float getTime()
-    {
-        return timer.getTime();
     }
     private void FixedUpdate()
     {

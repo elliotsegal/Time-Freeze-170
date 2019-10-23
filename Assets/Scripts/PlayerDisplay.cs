@@ -7,11 +7,16 @@ public class PlayerDisplay : MonoBehaviour
 {
     [NonSerialized] public PlayerInput player;
 
+    public static string GetPlayerName(PlayerController player)
+    {
+        string color = ColorUtility.ToHtmlStringRGB(player.color);
+        return $"<color=#{color}>{player.transform.parent.name}</color>";
+    }
+
     private void Start()
     {
-        string color = ColorUtility.ToHtmlStringRGB(player.GetComponentInChildren<PlayerController>().color);
-        string inputDevice = player.devices[0].displayName;
-        GetComponent<Text>().text = $"<color=#{color}>{player.name}</color>  {inputDevice}";
+        PlayerController controller = player.GetComponentInChildren<PlayerController>();
+        GetComponent<Text>().text = GetPlayerName(controller) + "  " + player.devices[0].displayName;
     }
 
     private void Update()
